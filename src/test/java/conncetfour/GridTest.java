@@ -1,8 +1,10 @@
 package conncetfour;
 
+import conncetfour.constant.Constant;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -21,6 +23,19 @@ class GridTest {
         //Then
         assertEquals(6, nombreLigne);
         assertEquals(7, nombreColumn);
+
+    }
+
+    @DisplayName("should Return Empty Matrix On Init")
+    @Test
+    void shouldReturnEmptyMatrixOnInit() {
+
+        // given
+        Grid grid = new Grid();
+        // when
+        char[][] resultGrid = grid.getGrid();
+        //Then
+        assertArrayEquals(Constant.EMPTY_GRID, resultGrid);
 
     }
 
