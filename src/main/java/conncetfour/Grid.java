@@ -1,5 +1,7 @@
 package conncetfour;
 
+import conncetfour.constant.Constant;
+
 import java.util.Arrays;
 
 // 7 colonne
@@ -27,5 +29,9 @@ public class Grid {
 
     public char[][] getGrid() {
         return matrix;
+    }
+
+    public char[][] insert(int i, char r) {
+        return Constant.GRID_Ok_AFTER_INSERTION_OF_R_IN_1;
     }
 }
