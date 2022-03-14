@@ -1,6 +1,6 @@
 package conncetfour;
 
-import conncetfour.constant.Constant;
+import conncetfour.utils.DisplayGrid;
 
 import java.util.Arrays;
 
@@ -8,12 +8,16 @@ import java.util.Arrays;
 // 6 linge
 public class Grid {
 
-    private final char[][] matrix;
+    private char[][] matrix;
+
+    public void setGrid(char[][] matrix) {
+        this.matrix = matrix;
+    }
 
     public Grid() {
         this.matrix = new char[6][7];
         for (char[] chars : matrix) {
-            Arrays.fill(chars, '-');
+            Arrays.fill(chars, '.');
         }
 
     }
@@ -31,7 +35,15 @@ public class Grid {
         return matrix;
     }
 
-    public char[][] insert(int i, char r) {
-        return Constant.GRID_Ok_AFTER_INSERTION_OF_R_IN_1;
+
+    public boolean insert(int columnIndex, char r) {
+
+        for (int i = this.matrix.length - 1; i >= 0; i--) {
+            if (this.matrix[i][columnIndex] == '.') {
+                this.matrix[i][columnIndex] = r;
+                return true;
+            }
+        }
+        return false;
     }
 }
